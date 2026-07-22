@@ -1,0 +1,93 @@
+{
+  "site": {
+    "name": "Pustaka Tujua Media",
+    "title": "Pustaka Tujua Media — Terbitkan Naskah Anda Jadi Buku Digital",
+    "description": "Jasa penerbitan naskah/buku digital untuk penulis individu dan kelompok. Dari formatting hingga design cover, kami bantu wujudkan buku impian Anda.",
+    "url": "https://pustaka-tujua-media.com",
+    "language": "id-ID",
+    "locale": "id_ID"
+  },
+  "company": {
+    "name": "Pustaka Tujua Media",
+    "email": "info@pustaka.id",
+    "whatsapp": "62xxxxxxxxxx",
+    "phone": "+62 XXX-XXXX-XXXX",
+    "address": "Jakarta, Indonesia"
+  },
+  "social": {
+    "instagram": "https://instagram.com/pustaka.tujua",
+    "facebook": "https://facebook.com/pustaka.tujua",
+    "linkedin": "https://linkedin.com/company/pustaka-tujua-media",
+    "twitter": "https://twitter.com/pustaka_tujua"
+  },
+  "packages": {
+    "solo": {
+      "name": "Solo Publishing",
+      "price": "1500000",
+      "currency": "IDR",
+      "description": "Untuk penulis individu",
+      "whatsappMessage": "Saya tertarik paket Solo Publishing. Saya ingin mendiskusikan kebutuhan naskah saya.",
+      "features": [
+        "Formatting naskah profesional",
+        "Cover design basic",
+        "Konsultasi 2x sesi",
+        "Lead time: 2 minggu"
+      ]
+    },
+    "kolaborasi": {
+      "name": "Kolaborasi",
+      "price": "2500000",
+      "currency": "IDR",
+      "description": "Untuk 2-5 penulis",
+      "whatsappMessage": "Saya tertarik paket Kolaborasi (2-5 penulis). Mari kita diskusikan proyek tim kami.",
+      "features": [
+        "Formatting naskah untuk tim",
+        "Cover design medium",
+        "Konsultasi unlimited",
+        "Koordinasi antar penulis",
+        "Lead time: 3 minggu"
+      ]
+    },
+    "konversi": {
+      "name": "Konversi Akademik",
+      "price": "2000000",
+      "currency": "IDR",
+      "description": "Skripsi/Tesis → Buku",
+      "whatsappMessage": "Saya tertarik paket Konversi Akademik. Naskah saya adalah karya akademik yang ingin dijadikan buku.",
+      "features": [
+        "Reformatting konten akademik",
+        "Simplifikasi bahasa (optional)",
+        "Cover design profesional",
+        "Konsultasi 3x sesi",
+        "Lead time: 3-4 minggu"
+      ]
+    }
+  },
+  "pages": [
+    {
+      "title": "Home",
+      "slug": "/",
+      "description": "Halaman utama Pustaka Tujua Media"
+    },
+    {
+      "title": "Tentang Kami",
+      "slug": "/pages/about.html",
+      "description": "Tentang Pustaka Tujua Media dan visi kami"
+    },
+    {
+      "title": "Layanan",
+      "slug": "/pages/layanan.html",
+      "description": "Paket layanan penerbitan naskah"
+    },
+    {
+      "title": "Portfolio",
+      "slug": "/pages/portfolio.html",
+      "description": "Portfolio dan sampel karya kami"
+    },
+    {
+      "title": "Kontak",
+      "slug": "/pages/contact.html",
+      "description": "Hubungi kami untuk konsultasi"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "pustaka-tujua-media",
+  "version": "1.0.0",
+  "description": "Website company profile untuk jasa penerbitan naskah/buku digital",
+  "main": "index.html",
+  "scripts": {
+    "build:css": "tailwindcss -i css/input.css -o css/main.css --minify",
+    "watch:css": "tailwindcss -i css/input.css -o css/main.css --watch",
+    "dev": "npm run watch:css"
+  },
+  "keywords": [
+    "penerbitan",
+    "naskah",
+    "buku",
+    "digital"
+  ],
+  "author": "Pustaka Tujua Media",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

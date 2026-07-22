@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body text-ink bg-cream;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+  }
+
+  h1 {
+    @apply text-h1-mob md:text-h1;
+  }
+
+  h2 {
+    @apply text-h2-mob md:text-h2;
+  }
+
+  h3 {
+    @apply text-h3-mob md:text-h3;
+  }
+
+  h4 {
+    @apply text-h4;
+  }
+
+  p {
+    @apply text-body;
+  }
+
+  a {
+    @apply text-green hover:text-green-dark transition-colors duration-300;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-4 ring-green ring-offset-2;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-4 ring-green ring-offset-2;
+  }
+}
+
+/* Custom components */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-button font-semibold text-cream bg-green rounded-button transition-all duration-300 hover:bg-green-dark active:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-button font-semibold text-green bg-transparent border-2 border-green rounded-button transition-all duration-300 hover:bg-cream-light active:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-sm {
+    @apply inline-flex items-center justify-center px-4 py-2 text-body-sm font-semibold rounded-button transition-all duration-300;
+  }
+
+  .btn-sm.primary {
+    @apply text-cream bg-green hover:bg-green-dark;
+  }
+
+  .btn-sm.secondary {
+    @apply text-green bg-transparent border-2 border-green hover:bg-cream-light;
+  }
+
+  .card {
+    @apply bg-cream rounded-card shadow-card transition-shadow duration-300 hover:shadow-card-hover;
+  }
+
+  .card-header {
+    @apply border-t-4 border-sienna;
+  }
+
+  .card-body {
+    @apply p-4 md:p-6;
+  }
+
+  .section-container {
+    @apply max-w-container mx-auto px-4 md:px-8;
+  }
+
+  .section {
+    @apply py-10 md:py-20 bg-cream-light;
+  }
+
+  .section.alt {
+    @apply bg-cream;
+  }
+
+  .feature-list {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+
+  .feature-item {
+    @apply p-4 md:p-6;
+  }
+
+  .feature-icon {
+    @apply w-6 h-6 text-sienna mb-3;
+  }
+
+  .form-group {
+    @apply mb-6;
+  }
+
+  .form-label {
+    @apply block text-label font-semibold text-ink mb-2;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 text-body bg-white border border-taupe rounded-input placeholder-taupe placeholder-opacity-60 transition-colors duration-300 focus-visible:border-green;
+  }
+
+  .form-input::placeholder {
+    @apply text-taupe opacity-60;
+  }
+
+  .form-textarea {
+    @apply w-full px-4 py-3 text-body bg-white border border-taupe rounded-input placeholder-taupe placeholder-opacity-60 min-h-[120px] transition-colors duration-300 focus-visible:border-green;
+    resize: vertical;
+  }
+
+  .form-error {
+    @apply text-sienna text-caption mt-1;
+  }
+
+  .grid-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8;
+  }
+
+  .grid-3 {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8;
+  }
+
+  .grid-4 {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8;
+  }
+
+  .text-muted {
+    @apply text-taupe;
+  }
+
+  .text-highlight {
+    @apply text-sienna font-semibold;
+  }
+
+  .link-underline {
+    @apply underline hover:no-underline;
+  }
+
+  .link-nav {
+    @apply text-ink hover:text-green transition-colors duration-300;
+  }
+
+  .link-nav.active {
+    @apply text-green border-b-2 border-sienna;
+  }
+}
+
+/* Animations & Utilities */
+@layer utilities {
+  .transition-all-300 {
+    @apply transition-all duration-300;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-green focus-visible:ring-offset-2;
+  }
+
+  .hamburger-line {
+    @apply h-0.5 bg-ink transition-all duration-300;
+  }
+
+  .hamburger.open .line1 {
+    @apply rotate-45 translate-y-2.5;
+  }
+
+  .hamburger.open .line2 {
+    @apply opacity-0;
+  }
+
+  .hamburger.open .line3 {
+    @apply -rotate-45 -translate-y-2.5;
+  }
+
+  .mobile-menu {
+    @apply hidden fixed top-16 left-0 right-0 bg-cream border-b border-beige shadow-lg;
+  }
+
+  .mobile-menu.open {
+    @apply block;
+  }
+
+  .skip-to-main {
+    @apply absolute -top-12 left-0 z-50 px-4 py-2 bg-green text-cream hover:bg-green-dark focus-visible:top-0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    @apply !transition-none !animate-none;
+  }
+}

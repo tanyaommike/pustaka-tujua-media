@@ -1,0 +1,12 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://pustaka-tujua-media.com/sitemap.xml
+
+# Disallow temporary/draft pages (if any)
+# Disallow: /draft/
+
+# Crawl delay (optional, be nice to servers)
+# Crawl-delay: 1
