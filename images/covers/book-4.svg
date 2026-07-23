@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" role="img" aria-labelledby="t4">
+  <title id="t4">Cover buku Catatan Kecil dari Kelas Menulis</title>
+  <defs>
+    <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8b8680"/>
+      <stop offset="100%" stop-color="#5f5b56"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="400" fill="url(#g4)"/>
+  <rect x="16" y="16" width="268" height="368" fill="none" stroke="#faf8f3" stroke-opacity="0.35" stroke-width="1.5"/>
+  <g transform="translate(150,122)" stroke="#faf8f3" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-18,-20 L-18,16 L14,16 M-18,-20 L14,-20 L14,16 M-18,-6 L14,-6"/>
+    <path d="M6,-14 L14,-14 L14,-6 Z" fill="#c85a3a" stroke="none"/>
+  </g>
+  <text x="150" y="210" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-weight="700" font-size="23" fill="#faf8f3">
+    <tspan x="150" dy="0">Catatan Kecil</tspan>
+    <tspan x="150" dy="30">dari Kelas Menulis</tspan>
+  </text>
+  <line x1="110" y1="272" x2="190" y2="272" stroke="#c85a3a" stroke-width="3"/>
+  <text x="150" y="298" text-anchor="middle" font-family="Poppins, sans-serif" font-size="14" fill="#faf8f3">Dewi Anggraini</text>
+</svg>

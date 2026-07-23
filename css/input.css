@@ -171,6 +171,34 @@
   .link-nav.active {
     @apply text-green border-b-2 border-sienna;
   }
+
+  .faq-item {
+    @apply bg-cream rounded-card shadow-card;
+  }
+
+  .faq-item summary {
+    @apply cursor-pointer list-none flex items-center justify-between gap-4 p-4 md:p-6 font-display font-bold text-h4 text-ink;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-icon {
+    @apply w-5 h-5 flex-shrink-0 text-sienna transition-transform duration-300;
+  }
+
+  .faq-item[open] .faq-icon {
+    @apply rotate-180;
+  }
+
+  .faq-answer {
+    @apply px-4 pb-4 md:px-6 md:pb-6 text-body text-taupe;
+  }
+
+  .whatsapp-float {
+    @apply fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-green text-cream flex items-center justify-center shadow-card-hover hover:bg-sienna transition-colors duration-300;
+  }
 }
 
 /* Animations & Utilities */

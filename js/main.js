@@ -75,6 +75,7 @@ function setupWhatsappLinks() {
     'footer-whatsapp': 'Halo, saya ingin bertanya tentang layanan Pustaka Tujua Media.',
     'contact-whatsapp': 'Halo, saya ingin bertanya tentang layanan Pustaka Tujua Media.',
     'btn-whatsapp-quick': 'Halo, saya ingin konsultasi cepat tentang layanan Pustaka Tujua Media.',
+    'btn-whatsapp-float': 'Halo, saya ingin bertanya tentang layanan Pustaka Tujua Media.',
   };
 
   Object.entries(packageButtons).forEach(([btnId, message]) => {
@@ -113,10 +114,18 @@ function setupContactForm() {
 
   const feedback = document.getElementById('contact-form-feedback');
 
+  const submitBtn = document.getElementById('contact-submit-btn');
+  const submitBtnDefaultText = submitBtn?.textContent;
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const body = new URLSearchParams(new FormData(form)).toString();
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Mengirim...';
+    }
 
     fetch('/', {
       method: 'POST',
@@ -132,6 +141,10 @@ function setupContactForm() {
         }
       })
       .catch(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = submitBtnDefaultText;
+        }
         if (feedback) {
           feedback.hidden = false;
           feedback.textContent = 'Maaf, pesan gagal terkirim. Silakan hubungi kami langsung via WhatsApp atau email.';

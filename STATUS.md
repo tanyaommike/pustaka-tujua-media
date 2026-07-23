@@ -16,17 +16,23 @@
 - **Form kontak fungsional** — `pages/contact.html` terhubung ke Netlify Forms (submit AJAX + pesan sukses/gagal inline), sebelumnya tidak mengirim data kemana pun
 - **Konten portfolio & tim tidak lagi kosong** — sebelumnya judul buku, nama tim, dan statistik hanya berupa HTML comment (render kosong di halaman). Sudah diisi data contoh yang terlihat (lihat catatan di bawah — masih perlu diganti data asli)
 - **Copyright tahun otomatis** — `&copy; <tahun>` di footer sekarang di-update otomatis oleh JS, tidak perlu edit manual tiap tahun
+- **Tombol WhatsApp mengambang** — muncul konsisten di semua halaman (termasuk `404.html`) untuk CTA yang selalu terlihat
+- **FAQ jadi accordion** — `pages/layanan.html` sekarang pakai `<details>/<summary>` native, lebih ringkas terutama di mobile
+- **Loading state tombol kirim** — tombol "Kirim Pesan" nonaktif & berubah teks "Mengirim..." saat proses submit form
+- **Halaman 404 kustom** — `404.html` di root, sebelumnya URL salah ketik akan auto-redirect ke homepage (redirect SPA-style di `netlify.toml` sudah dihapus karena situs ini bukan SPA)
+- **Schema.org LocalBusiness** — JSON-LD ditambahkan di `index.html` untuk SEO
+- **Gambar pengganti emoji** — cover buku portfolio (`/images/covers/book-1.svg` s.d. `book-4.svg`) dan avatar tim (`/images/team/avatar-1.svg` s.d. `avatar-3.svg`) berupa SVG buatan sendiri (bukan foto asli, bukan stok internet) supaya tampilan tidak polos sebelum ada foto sungguhan
 
 ## ⏳ Belum Selesai / Perlu Dikerjakan
 
-### 1. Ganti Data Contoh dengan Data Asli
+### 1. Ganti Data & Gambar Contoh dengan Data Asli
 - Email asli (masih `info@pustaka.id`), link Instagram/Facebook asli
-- Nama, posisi, & foto tim asli (`pages/about.html` — saat ini diisi data contoh: "Nama Founder", "Nama Desainer", "Nama Koordinator")
-- Item portfolio asli (`pages/portfolio.html` — saat ini diisi 4 contoh buku fiktif untuk placeholder tampilan, plus angka statistik contoh 50+/150+/2024)
+- Nama, posisi, & foto tim asli (`pages/about.html` — saat ini teks contoh "Nama Founder" dll, foto masih ikon SVG generik)
+- Item portfolio asli (`pages/portfolio.html` — saat ini 4 contoh buku fiktif + cover SVG buatan, plus angka statistik contoh 50+/150+/2024)
+- Foto asli tim & cover buku asli (ganti file di `/images/team/` dan `/images/covers/`, bisa pakai nama file yang sama supaya tidak perlu ubah HTML)
 
-### 2. Gambar Asli
-- Ganti placeholder emoji dengan cover buku asli di `/images/covers/`
-- Tambah Open Graph image (1200x630px) di `/images/og/`
+### 2. Open Graph Image
+- Tambah gambar OG asli (format JPG/PNG, 1200x630px) di `/images/og/` — SVG tidak reliable untuk og:image di kebanyakan platform sosial media, jadi ini butuh gambar raster asli
 
 ### 3. Aktifkan Netlify Forms di Dashboard
 - Form kontak sudah dikonfigurasi (`data-netlify="true"` + honeypot), tapi Netlify baru mendeteksinya setelah file di-deploy pertama kali. Setelah deploy, cek Netlify Dashboard → Forms untuk memastikan form "contact" terdaftar.
@@ -35,7 +41,7 @@
 - Lihat checklist lengkap di `CHECKLIST.md`
 
 ### 5. Push & Deploy
-- Commit perubahan (`js/main.js`, `css/main.css`, semua halaman, `config.json`, `netlify.toml`)
+- Commit perubahan
 - Push ke GitHub → Netlify auto-deploy
 - Detail langkah di `DEPLOYMENT.md`
 
@@ -43,6 +49,6 @@
 
 ## Info Repo
 
-- **GitHub**: https://github.com/tanyoommike/pustaka-tujua-media
+- **GitHub**: https://github.com/tanyaommike/pustaka-tujua-media
 - **Branch**: main
 - **Hosting rencana**: Netlify (build command kosong, publish directory `.`)
