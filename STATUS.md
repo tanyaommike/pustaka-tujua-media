@@ -23,6 +23,7 @@
 - **Schema.org LocalBusiness** — JSON-LD ditambahkan di `index.html` untuk SEO
 - **Gambar pengganti emoji** — cover buku portfolio (`/images/covers/book-1.svg` s.d. `book-4.svg`) dan avatar tim (`/images/team/avatar-1.svg` s.d. `avatar-3.svg`) berupa SVG buatan sendiri (bukan foto asli, bukan stok internet) supaya tampilan tidak polos sebelum ada foto sungguhan, dengan ikon buku yang konsisten di semua cover
 - **Halaman detail portfolio** — tiap cover di `pages/portfolio.html` sekarang bisa diklik, menuju halaman sendiri di `pages/portfolio/<slug>.html` (cover besar, judul, deskripsi lebih lengkap, tombol WhatsApp khusus per buku, link ke halaman layanan). Sengaja **tidak** pakai harga per buku — lihat alasan di bawah
+- **5 section baru di homepage** (`index.html`): Buku Terbitan Kami (grid cover 6/3/2 kolom + link ke portfolio lengkap), revisi Paket Layanan (badge "Best Value" di paket Kolaborasi, durasi proses dalam hari, icon checklist, fitur tambahan seperti proofreading/cek plagiarisme/gratis ongkir — sengaja tanpa fitur ISBN), Testimoni (3 kartu, ditandai `[DUMMY]`), Artikel Terbaru (4 kartu, link ke `/artikel/<slug>` yang belum ada halamannya), FAQ accordion dengan icon plus/minus. Tombol WhatsApp di section baru pakai sistem id + `js/main.js` yang sudah ada (bukan placeholder terpisah) supaya nomor tetap satu sumber kebenaran
 
 ## ⏳ Belum Selesai / Perlu Dikerjakan
 
@@ -31,6 +32,8 @@
 - Nama, posisi, & foto tim asli (`pages/about.html` — saat ini teks contoh "Nama Founder" dll, foto masih ikon SVG generik)
 - Item portfolio asli (`pages/portfolio.html` — saat ini 4 contoh buku fiktif + cover SVG buatan, plus angka statistik contoh 50+/150+/2024)
 - Foto asli tim & cover buku asli (ganti file di `/images/team/` dan `/images/covers/`, bisa pakai nama file yang sama supaya tidak perlu ubah HTML)
+- **Testimoni asli** — 3 kartu testimoni di homepage masih dummy (ditandai `[DUMMY]` di tiap kartu), ganti teks, nama, jabatan, dan foto (`/images/team/client-1.svg` s.d. `client-3.svg`)
+- **Artikel asli** — 4 link artikel di homepage (`/artikel/...`) belum ada halamannya sama sekali (dummy link, akan 404 kalau diklik). Perlu diputuskan: mau bikin blog sungguhan (perlu halaman detail per artikel) atau ganti jadi galeri foto kegiatan yang lebih simpel
 
 ### 2. Open Graph Image
 - Tambah gambar OG asli (format JPG/PNG, 1200x630px) di `/images/og/` — SVG tidak reliable untuk og:image di kebanyakan platform sosial media, jadi ini butuh gambar raster asli

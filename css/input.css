@@ -199,6 +199,28 @@
   .whatsapp-float {
     @apply fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-green text-cream flex items-center justify-center shadow-card-hover hover:bg-sienna transition-colors duration-300;
   }
+
+  .pricing-card-highlight {
+    @apply border-2 border-sienna shadow-card-hover md:-translate-y-2;
+  }
+
+  .pricing-badge {
+    @apply absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap bg-sienna text-cream text-caption font-semibold px-4 py-1 rounded-full;
+  }
+
+  .check-icon {
+    @apply w-5 h-5 text-sienna flex-shrink-0;
+  }
+
+  .faq-toggle-icon .v-line {
+    transform-origin: center;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .faq-item[open] .faq-toggle-icon .v-line {
+    opacity: 0;
+    transform: scaleY(0);
+  }
 }
 
 /* Animations & Utilities */

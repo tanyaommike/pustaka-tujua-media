@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Ilustrasi artikel kesalahan umum penulis pemula">
+  <defs>
+    <linearGradient id="a1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2d5a4a"/>
+      <stop offset="100%" stop-color="#1a4433"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#a1)"/>
+  <g transform="translate(200,150)" stroke="#faf8f3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-30,20 L-6,-28 L18,-28 L-6,20 Z"/>
+    <path d="M-6,20 L34,20"/>
+    <circle cx="26" cy="-22" r="10" stroke="#c85a3a"/>
+    <path d="M22,-22 L30,-22 M26,-26 L26,-18" stroke="#c85a3a"/>
+  </g>
+</svg>

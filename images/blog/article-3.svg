@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Ilustrasi artikel konversi skripsi menjadi buku">
+  <defs>
+    <linearGradient id="a3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#a3)"/>
+  <g transform="translate(200,150)" stroke="#faf8f3" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-36,-10 L0,-26 L36,-10 L0,6 Z"/>
+    <path d="M-20,-2 L-20,16 C-20,24 20,24 20,16 L20,-2"/>
+    <path d="M32,-10 L32,10" stroke="#c85a3a"/>
+    <path d="M8,30 L44,30 M36,22 L44,30 L36,38" stroke="#c85a3a"/>
+  </g>
+</svg>
