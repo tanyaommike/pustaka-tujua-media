@@ -35,9 +35,11 @@ git push -u origin main
    - **Publish directory**: `.`
 4. Deploy — Netlify beri URL `https://xxxxx.netlify.app`
 
-Konfigurasi di atas sudah tersimpan di `netlify.toml` (root project), termasuk redirect SPA-style ke `index.html` dan cache headers untuk `css/`, `js/`, `.html`.
+Konfigurasi di atas sudah tersimpan di `netlify.toml` (root project), termasuk `404.html` custom dan cache headers untuk `css/`, `js/`, `images/`, `.html`.
 
 > **Kenapa build command dikosongkan?** Karena `node_modules/` tidak ikut di-push ke GitHub, Netlify tidak bisa menjalankan `npm run build:css` (`tailwindcss: command not found`). Solusinya: compile CSS lokal (`npm run build:css`), commit `css/main.css`, biarkan Netlify hanya publish file statis.
+
+> **Penting soal cache**: `css/main.css` dan `js/main.js` punya nama file yang sama tiap deploy (tidak pakai hash seperti `main.a1b2c3.css`). Karena itu, **jangan** set `Cache-Control` jadi `immutable` atau `max-age` yang sangat panjang untuk `css/`/`js`/`images` — begitu isinya berubah tapi nama filenya sama, browser pengunjung lama akan terus pakai versi cache yang basi (gejalanya: style/ikon jadi berantakan setelah update, padahal kode sudah benar). Setelan saat ini (`max-age=3600, must-revalidate` untuk css/js) sengaja dibuat pendek untuk menghindari ini.
 
 ### Custom Domain (opsional)
 
