@@ -21,7 +21,8 @@
 - **Loading state tombol kirim** — tombol "Kirim Pesan" nonaktif & berubah teks "Mengirim..." saat proses submit form
 - **Halaman 404 kustom** — `404.html` di root, sebelumnya URL salah ketik akan auto-redirect ke homepage (redirect SPA-style di `netlify.toml` sudah dihapus karena situs ini bukan SPA)
 - **Schema.org LocalBusiness** — JSON-LD ditambahkan di `index.html` untuk SEO
-- **Gambar pengganti emoji** — cover buku portfolio (`/images/covers/book-1.svg` s.d. `book-4.svg`) dan avatar tim (`/images/team/avatar-1.svg` s.d. `avatar-3.svg`) berupa SVG buatan sendiri (bukan foto asli, bukan stok internet) supaya tampilan tidak polos sebelum ada foto sungguhan
+- **Gambar pengganti emoji** — cover buku portfolio (`/images/covers/book-1.svg` s.d. `book-4.svg`) dan avatar tim (`/images/team/avatar-1.svg` s.d. `avatar-3.svg`) berupa SVG buatan sendiri (bukan foto asli, bukan stok internet) supaya tampilan tidak polos sebelum ada foto sungguhan, dengan ikon buku yang konsisten di semua cover
+- **Halaman detail portfolio** — tiap cover di `pages/portfolio.html` sekarang bisa diklik, menuju halaman sendiri di `pages/portfolio/<slug>.html` (cover besar, judul, deskripsi lebih lengkap, tombol WhatsApp khusus per buku, link ke halaman layanan). Sengaja **tidak** pakai harga per buku — lihat alasan di bawah
 
 ## ⏳ Belum Selesai / Perlu Dikerjakan
 

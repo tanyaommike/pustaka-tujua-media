@@ -76,6 +76,10 @@ function setupWhatsappLinks() {
     'contact-whatsapp': 'Halo, saya ingin bertanya tentang layanan Pustaka Tujua Media.',
     'btn-whatsapp-quick': 'Halo, saya ingin konsultasi cepat tentang layanan Pustaka Tujua Media.',
     'btn-whatsapp-float': 'Halo, saya ingin bertanya tentang layanan Pustaka Tujua Media.',
+    'btn-inquiry-book1': 'Halo, saya lihat portfolio "Jejak Langkah Pulang" dan tertarik dengan paket Solo Publishing untuk naskah saya.',
+    'btn-inquiry-book2': 'Halo, saya lihat portfolio "Antologi Cerita Kita" dan tertarik dengan paket Kolaborasi untuk proyek tim kami.',
+    'btn-inquiry-book3': 'Halo, saya lihat portfolio "Strategi Komunikasi Digital UMKM" dan tertarik dengan paket Konversi Akademik.',
+    'btn-inquiry-book4': 'Halo, saya lihat portfolio "Catatan Kecil dari Kelas Menulis" dan tertarik dengan paket Solo Publishing.',
   };
 
   Object.entries(packageButtons).forEach(([btnId, message]) => {

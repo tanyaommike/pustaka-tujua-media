@@ -32,6 +32,32 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Portfolio Detail -->
+  <url>
+    <loc>https://pustaka-tujua-media.com/pages/portfolio/jejak-langkah-pulang.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pustaka-tujua-media.com/pages/portfolio/antologi-cerita-kita.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pustaka-tujua-media.com/pages/portfolio/strategi-komunikasi-digital-umkm.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pustaka-tujua-media.com/pages/portfolio/catatan-kecil-dari-kelas-menulis.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Kontak -->
   <url>
     <loc>https://pustaka-tujua-media.com/pages/contact.html</loc>
