@@ -3,6 +3,7 @@ module.exports = {
   content: [
     './*.html',
     './pages/**/*.html',
+    './artikel/**/*.html',
     './js/**/*.js',
   ],
   theme: {

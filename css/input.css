@@ -212,6 +212,18 @@
     @apply w-5 h-5 text-sienna flex-shrink-0;
   }
 
+  .prose-article > * + * {
+    @apply mt-4;
+  }
+
+  .prose-article h2 {
+    @apply text-h4 mt-8 mb-2;
+  }
+
+  .prose-article strong {
+    @apply font-semibold text-ink;
+  }
+
   .faq-toggle-icon .v-line {
     transform-origin: center;
     transition: opacity 0.2s, transform 0.2s;

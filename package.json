@@ -4,7 +4,9 @@
   "description": "Website company profile untuk jasa penerbitan naskah/buku digital",
   "main": "index.html",
   "scripts": {
+    "build:articles": "node scripts/build-articles.js",
     "build:css": "tailwindcss -i css/input.css -o css/main.css --minify",
+    "build": "npm run build:articles && npm run build:css",
     "watch:css": "tailwindcss -i css/input.css -o css/main.css --watch",
     "dev": "npm run watch:css"
   },
@@ -16,6 +18,9 @@
   ],
   "author": "Pustaka Tujua Media",
   "license": "MIT",
+  "dependencies": {
+    "marked": "^12.0.0"
+  },
   "devDependencies": {
     "tailwindcss": "^3.4.0"
   }

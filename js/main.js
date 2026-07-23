@@ -80,6 +80,7 @@ function setupWhatsappLinks() {
     'btn-inquiry-book2': 'Halo, saya lihat portfolio "Antologi Cerita Kita" dan tertarik dengan paket Kolaborasi untuk proyek tim kami.',
     'btn-inquiry-book3': 'Halo, saya lihat portfolio "Strategi Komunikasi Digital UMKM" dan tertarik dengan paket Konversi Akademik.',
     'btn-inquiry-book4': 'Halo, saya lihat portfolio "Catatan Kecil dari Kelas Menulis" dan tertarik dengan paket Solo Publishing.',
+    'btn-inquiry-article': 'Halo, saya baru baca artikel di blog Pustaka Tujua Media dan ingin konsultasi soal naskah saya.',
   };
 
   Object.entries(packageButtons).forEach(([btnId, message]) => {
