@@ -150,7 +150,12 @@
           <div>
             <h2 class="text-h2 mb-8">Kirim Pesan</h2>
             
-            <form class="space-y-6">
+            <form id="contact-form" class="space-y-6" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact">
+              <p class="hidden">
+                <label>Jangan diisi: <input name="bot-field"></label>
+              </p>
+
               <div class="form-group">
                 <label for="name" class="form-label">Nama Lengkap</label>
                 <input id="name" type="text" name="name" class="form-input" placeholder="Nama Anda" required>
@@ -196,6 +201,8 @@
                 💡 <span class="font-semibold">Tip:</span> Untuk respon yang lebih cepat, hubungi kami langsung via WhatsApp.
               </p>
             </form>
+
+            <p id="contact-form-feedback" class="text-body font-medium text-green mt-4" hidden></p>
           </div>
         </div>
       </div>
@@ -306,7 +313,7 @@
       </div>
 
       <div class="border-t border-green mt-8 pt-6 text-center text-caption text-beige">
-        <p>&copy; 2024 Pustaka Tujua Media. Semua hak dilindungi.</p>
+        <p>&copy; <span id="copyright-year">2024</span> Pustaka Tujua Media. Semua hak dilindungi.</p>
       </div>
     </div>
   </footer>

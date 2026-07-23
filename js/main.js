@@ -6,6 +6,7 @@
 // Configuration
 const CONFIG = {
   whatsappNumber: '6285256095692', // Replace with actual number
+  whatsappDisplay: '+62 852-5609-5692',
   mobileBreakpoint: 768,
 };
 
@@ -64,12 +65,16 @@ function generateWhatsappLink(message) {
  * Setup WhatsApp CTA buttons
  */
 function setupWhatsappLinks() {
-  // Package buttons
+  // All WhatsApp CTA buttons across every page, keyed by element id
   const packageButtons = {
     'btn-solo': 'Saya tertarik paket Solo Publishing. Saya ingin mendiskusikan kebutuhan naskah saya.',
     'btn-kolaborasi': 'Saya tertarik paket Kolaborasi (2-5 penulis). Mari kita diskusikan proyek tim kami.',
     'btn-konversi': 'Saya tertarik paket Konversi Akademik. Naskah saya adalah karya akademik yang ingin dijadikan buku.',
     'btn-hubungi': 'Halo, saya ingin berkonsultasi lebih lanjut tentang layanan Pustaka Tujua Media.',
+    'btn-hubungi-bottom': 'Halo, saya ingin berkonsultasi lebih lanjut tentang layanan Pustaka Tujua Media.',
+    'footer-whatsapp': 'Halo, saya ingin bertanya tentang layanan Pustaka Tujua Media.',
+    'contact-whatsapp': 'Halo, saya ingin bertanya tentang layanan Pustaka Tujua Media.',
+    'btn-whatsapp-quick': 'Halo, saya ingin konsultasi cepat tentang layanan Pustaka Tujua Media.',
   };
 
   Object.entries(packageButtons).forEach(([btnId, message]) => {
@@ -79,6 +84,59 @@ function setupWhatsappLinks() {
       btn.target = '_blank';
       btn.rel = 'noopener noreferrer';
     }
+  });
+
+  // Replace placeholder phone number text with the real formatted number
+  document.querySelectorAll('a').forEach((link) => {
+    if (link.textContent.trim() === '+62 XXX-XXXX-XXXX') {
+      link.textContent = CONFIG.whatsappDisplay;
+    }
+  });
+}
+
+/**
+ * Show current year in footer copyright notice
+ */
+function setCopyrightYear() {
+  const el = document.getElementById('copyright-year');
+  if (el) {
+    el.textContent = new Date().getFullYear();
+  }
+}
+
+/**
+ * Submit contact form via Netlify Forms (AJAX, no page reload)
+ */
+function setupContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  const feedback = document.getElementById('contact-form-feedback');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const body = new URLSearchParams(new FormData(form)).toString();
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    })
+      .then(() => {
+        form.reset();
+        form.hidden = true;
+        if (feedback) {
+          feedback.hidden = false;
+          feedback.textContent = 'Terima kasih! Pesan Anda sudah terkirim, kami akan segera menghubungi Anda.';
+        }
+      })
+      .catch(() => {
+        if (feedback) {
+          feedback.hidden = false;
+          feedback.textContent = 'Maaf, pesan gagal terkirim. Silakan hubungi kami langsung via WhatsApp atau email.';
+        }
+      });
   });
 }
 
@@ -139,6 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setupWhatsappLinks();
   setupSmoothScroll();
   setupSkipToMain();
+  setCopyrightYear();
+  setupContactForm();
   window.addEventListener('resize', handleResize);
 });
 

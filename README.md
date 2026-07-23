@@ -64,6 +64,10 @@ npm run dev
 ├── tailwind.config.js        # Tailwind config
 ├── REQUIREMENTS.md           # Requirements doc
 ├── DESIGN.md                 # Design system
+├── STATUS.md                  # Status proyek & yang belum selesai
+├── DEPLOYMENT.md              # Panduan deploy (Netlify/Vercel/GitHub Pages/FTP)
+├── CHECKLIST.md               # Testing & optimization checklist
+├── html-snippets.md           # Komponen HTML reusable
 └── README.md                 # This file
 ```
 
@@ -189,31 +193,7 @@ Pastikan update saat tambah halaman baru.
 
 ## 🚢 Deployment
 
-### Netlify
-
-1. Connect GitHub repo ke Netlify
-2. Set build command: `npm run build:css`
-3. Set publish directory: `/` (root)
-4. Deploy!
-
-### Vercel
-
-1. Connect GitHub repo
-2. Build command: `npm run build:css`
-3. Output: `/`
-4. Deploy!
-
-### GitHub Pages
-
-1. Push ke `main` branch
-2. Settings → Pages → Source = main branch
-3. Deploy otomatis!
-
-### Traditional Hosting
-
-1. Run `npm run build:css` locally
-2. Upload semua files ke server (via FTP/SCP)
-3. Beres!
+Lihat `DEPLOYMENT.md` untuk panduan lengkap (Netlify, Vercel, GitHub Pages, hosting tradisional).
 
 ---
 
