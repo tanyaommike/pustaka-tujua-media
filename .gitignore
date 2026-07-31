@@ -11,3 +11,6 @@ Thumbs.db
 *.swp
 .idea/
 .vscode/
+
+# Deployment package
+pustaka-tujua-media-site.zip

@@ -1,0 +1,30 @@
+# Pustaka Tujua Media — Apache config (untuk cPanel hosting)
+
+# Custom 404 page
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect /artikel/<slug> (tanpa .html) ke /artikel/<slug>.html
+  # Supaya link tanpa ekstensi tetap tidak 404 & tidak duplicate content
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^artikel/([^/]+)$ /artikel/$1.html [R=301,L]
+</IfModule>
+
+# Cache headers
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 day"
+  ExpiresByType application/javascript "access plus 1 day"
+  ExpiresByType image/svg+xml "access plus 7 days"
+  ExpiresByType image/png "access plus 7 days"
+  ExpiresByType image/jpeg "access plus 7 days"
+  ExpiresByType image/webp "access plus 7 days"
+</IfModule>
+
+# Compress asset untuk performa
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>

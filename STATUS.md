@@ -61,4 +61,4 @@
 
 - **GitHub**: https://github.com/tanyaommike/pustaka-tujua-media
 - **Branch**: main
-- **Hosting rencana**: Netlify (build command `npm run build`, publish directory `.`)
+- **Hosting rencana**: cPanel (upload via File Manager/FTP ke `public_html`), `.htaccess` sudah disiapkan. Opsi lain: Netlify (build `npm run build`, publish `.`)
