@@ -27,7 +27,7 @@
 - **Repo dibersihkan** — `node_modules/` dihapus dari git tracking + ditambahkan `.gitignore` (sebelumnya 1.394 file dependency ikut ter-commit)
 - **`sitemap.xml` auto-generated** — dibuat oleh `npm run build` dari `scripts/build-articles.js` (halaman statis + semua artikel, `changefreq` valid), tidak lagi diedit manual
 - **URL artikel konsisten** — semua link artikel pakai `.html` (homepage, canonical, og:url), plus redirect 301 `/artikel/<slug>` → `/artikel/<slug>.html` di `netlify.toml` supaya tidak 404 di hosting selain Netlify & tidak duplicate content
-- **Gambar Open Graph placeholder** — `/images/og/*.svg` dibuat (sebelumnya semua og:image menunjuk ke file yang tidak ada / 404). Masih perlu diganti JPG/PNG 1200×630 untuk hasil terbaik di sosmed
+- **Gambar Open Graph** — `/images/og/*.png` (1200×630, raster) dibuat menggantikan placeholder SVG yang tidak reliable; referensi og:image di semua halaman sudah pakai PNG
 - **Aksesibilitas hamburger** — tombol sekarang punya `aria-controls` dan `aria-expanded` di-update otomatis oleh JS
 - **Build command Netlify diisi** — `netlify.toml` sekarang pakai `npm run build` (Netlify install dependency + build otomatis)
 
@@ -42,7 +42,7 @@
 - **Artikel asli** — 4 artikel sudah punya halaman (`/artikel/*.html` dibangun dari `content/articles/*.md` via `npm run build`), tapi isinya masih contoh (ditandai `[DUMMY]` di `index.html` & komentar "port" di tiap file Markdown). Isi topik asli lalu jalankan `npm run build` untuk regenerasi
 
 ### 2. Open Graph Image
-- Placeholder SVG sudah ada (`/images/og/*.svg`), tapi untuk hasil terbaik di sosmed ganti dengan gambar raster asli (JPG/PNG 1200x630px) di path yang sama
+- Gambar OG raster 1200×630 sudah ada (`/images/og/*.png`) dengan teks tiap halaman, tapi masih bisa di-upgrade ke desain dengan foto/branding asli
 
 ### 3. Aktifkan Netlify Forms di Dashboard
 - Form kontak sudah dikonfigurasi (`data-netlify="true"` + honeypot), tapi Netlify baru mendeteksinya setelah file di-deploy pertama kali. Setelah deploy, cek Netlify Dashboard → Forms untuk memastikan form "contact" terdaftar.

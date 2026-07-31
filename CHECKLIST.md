@@ -46,7 +46,7 @@ Test dengan: [PageSpeed Insights](https://pagespeed.web.dev/), [WebPageTest](htt
 - [ ] Open Graph tags lengkap (og:title, og:description, og:image, og:url, og:locale)
 - [ ] Canonical URL self-referential
 - [ ] `sitemap.xml` & `robots.txt` accessible dan berisi semua halaman (termasuk artikel)
-- [ ] `og:image` menunjuk file yang benar-benar ada (bukan 404) — placeholder SVG di `/images/og/`
+- [ ] `og:image` menunjuk file yang benar-benar ada (bukan 404) — raster 1200×630 di `/images/og/`
 - [ ] Semua link artikel (`/artikel/*.html`) menuju halaman yang ada
 - [ ] Internal linking antar halaman terkait
 - [ ] (Opsional) Schema.org LocalBusiness JSON-LD
