@@ -31,13 +31,13 @@ git push -u origin main
 1. https://app.netlify.com/signup → sign up dengan GitHub
 2. **Add new site → Import an existing project** → pilih repo
 3. Build settings:
-   - **Build command**: kosongkan (CSS sudah di-compile & di-commit ke `css/main.css`)
+   - **Build command**: `npm run build` (compile CSS Tailwind + build halaman artikel & sitemap)
    - **Publish directory**: `.`
 4. Deploy — Netlify beri URL `https://xxxxx.netlify.app`
 
-Konfigurasi di atas sudah tersimpan di `netlify.toml` (root project), termasuk `404.html` custom dan cache headers untuk `css/`, `js/`, `images/`, `.html`.
+Konfigurasi di atas sudah tersimpan di `netlify.toml` (root project), termasuk redirect `/artikel/*` → `.html`, `404.html` custom dan cache headers untuk `css/`, `js/`, `images/`, `.html`.
 
-> **Kenapa build command dikosongkan?** Karena `node_modules/` tidak ikut di-push ke GitHub, Netlify tidak bisa menjalankan `npm run build:css` (`tailwindcss: command not found`). Solusinya: compile CSS lokal (`npm run build:css`), commit `css/main.css`, biarkan Netlify hanya publish file statis.
+> **Kenapa `npm run build`?** `node_modules/` tidak ikut di-push ke GitHub (lihat `.gitignore`), jadi Netlify akan menjalankan `npm install` lalu `npm run build` otomatis. Ini memastikan CSS, halaman artikel, dan `sitemap.xml` selalu terbaru tanpa harus di-commit ulang manual.
 
 > **Penting soal cache**: `css/main.css` dan `js/main.js` punya nama file yang sama tiap deploy (tidak pakai hash seperti `main.a1b2c3.css`). Karena itu, **jangan** set `Cache-Control` jadi `immutable` atau `max-age` yang sangat panjang untuk `css/`/`js`/`images` — begitu isinya berubah tapi nama filenya sama, browser pengunjung lama akan terus pakai versi cache yang basi (gejalanya: style/ikon jadi berantakan setelah update, padahal kode sudah benar). Setelan saat ini (`max-age=3600, must-revalidate` untuk css/js) sengaja dibuat pendek untuk menghindari ini.
 
@@ -52,7 +52,7 @@ Konfigurasi di atas sudah tersimpan di `netlify.toml` (root project), termasuk `
 ## Opsi 2: Vercel
 
 1. https://vercel.com/ → **Add New → Project** → import repo
-2. Build command: kosongkan (sama alasan seperti Netlify)
+2. Build command: `npm run build`
 3. Output directory: `.`
 4. Deploy
 
@@ -82,13 +82,14 @@ git push origin main
 ```
 Netlify/Vercel auto-deploy dalam ~30 detik – 2 menit.
 
-**Perubahan CSS/Tailwind config**:
+**Perubahan CSS/Tailwind config atau artikel Markdown**:
 ```bash
-npm run build:css
-git add css/main.css
+npm run build
+git add css/main.css artikel/ sitemap.xml
 git commit -m "Update styles"
 git push
 ```
+> Catatan: `artikel/*.html`, `css/main.css`, dan `sitemap.xml` adalah hasil build. Jika mengubah `content/articles/*.md`, jalankan `npm run build` dan commit hasilnya.
 
 ---
 
@@ -107,8 +108,9 @@ git push
 
 | Masalah | Solusi |
 |---|---|
-| Build gagal / `tailwindcss: command not found` | Pastikan build command di Netlify/Vercel dikosongkan, `css/main.css` sudah di-commit |
-| CSS tidak muncul / styling rusak | Cek `css/main.css` ada di GitHub; trigger redeploy manual di dashboard |
+| Build gagal / `tailwindcss: command not found` | Pastikan `npm install` jalan saat build (Netlify/Vercel otomatis); cek `package.json` & `.gitignore` benar |
+| CSS tidak muncul / styling rusak | Jalankan `npm run build:css`, commit `css/main.css`, redeploy |
+| Halaman artikel 404 | Pastikan sudah `npm run build` dan `artikel/*.html` ter-commit |
 | Link WhatsApp tidak jalan | Cek `CONFIG.whatsappNumber` di `js/main.js` sudah nomor asli; test di device mobile |
 | Gambar tidak muncul | Cek path relatif benar, file ada di `/images/`, cek console untuk 404 |
 

@@ -43,7 +43,7 @@ function formatDateId(dateStr) {
 
 function renderPage({ title, slug, date, excerpt, thumbnail, contentHtml }) {
   const dateDisplay = formatDateId(date);
-  const pageUrl = `${SITE_URL}/artikel/${slug}`;
+  const pageUrl = `${SITE_URL}/artikel/${slug}.html`;
 
   return `<!DOCTYPE html>
 <html lang="id">
@@ -90,7 +90,7 @@ function renderPage({ title, slug, date, excerpt, thumbnail, contentHtml }) {
         <a href="/pages/contact.html" class="link-nav font-medium hover:text-sienna">Kontak</a>
       </nav>
 
-      <button id="hamburger" class="md:hidden flex flex-col gap-1 p-2 hover:bg-cream-light rounded-button transition-colors" aria-label="Toggle navigation menu" aria-expanded="false">
+      <button id="hamburger" class="md:hidden flex flex-col gap-1 p-2 hover:bg-cream-light rounded-button transition-colors" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
         <span class="hamburger-line line1 w-6"></span>
         <span class="hamburger-line line2 w-6"></span>
         <span class="hamburger-line line3 w-6"></span>
@@ -119,7 +119,7 @@ function renderPage({ title, slug, date, excerpt, thumbnail, contentHtml }) {
         <p class="text-caption text-muted mb-2">${dateDisplay}</p>
         <h1 class="text-h2 text-ink mb-6">${title}</h1>
 
-        <img src="${thumbnail}" alt="" class="w-full aspect-[4/3] object-cover rounded-card shadow-card mb-8" loading="lazy" width="800" height="600">
+        <img src="${thumbnail}" alt="Ilustrasi artikel: ${title}" class="w-full aspect-[4/3] object-cover rounded-card shadow-card mb-8" loading="lazy" width="800" height="600">
 
         <article class="prose-article text-body text-ink leading-relaxed">
 ${contentHtml}
@@ -205,6 +205,7 @@ function build() {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
   const files = fs.readdirSync(ARTICLES_DIR).filter((f) => f.endsWith('.md'));
+  const articleEntries = [];
 
   files.forEach((file) => {
     const raw = fs.readFileSync(path.join(ARTICLES_DIR, file), 'utf8');
@@ -222,9 +223,40 @@ function build() {
     const outputPath = path.join(OUTPUT_DIR, `${data.slug}.html`);
     fs.writeFileSync(outputPath, html, 'utf8');
     console.log(`Built /artikel/${data.slug}.html`);
+
+    articleEntries.push({ loc: `${SITE_URL}/artikel/${data.slug}.html`, lastmod: data.date });
   });
 
   console.log(`\n${files.length} article(s) built.`);
+  buildSitemap(articleEntries);
+}
+
+function buildSitemap(articleEntries) {
+  const staticPages = [
+    { loc: `${SITE_URL}/`, lastmod: '2026-07-23', changefreq: 'weekly', priority: '1.0' },
+    { loc: `${SITE_URL}/pages/about.html`, lastmod: '2026-07-23', changefreq: 'monthly', priority: '0.8' },
+    { loc: `${SITE_URL}/pages/layanan.html`, lastmod: '2026-07-23', changefreq: 'weekly', priority: '0.9' },
+    { loc: `${SITE_URL}/pages/portfolio.html`, lastmod: '2026-07-23', changefreq: 'weekly', priority: '0.8' },
+    { loc: `${SITE_URL}/pages/portfolio/jejak-langkah-pulang.html`, lastmod: '2026-07-23', changefreq: 'monthly', priority: '0.6' },
+    { loc: `${SITE_URL}/pages/portfolio/antologi-cerita-kita.html`, lastmod: '2026-07-23', changefreq: 'monthly', priority: '0.6' },
+    { loc: `${SITE_URL}/pages/portfolio/strategi-komunikasi-digital-umkm.html`, lastmod: '2026-07-23', changefreq: 'monthly', priority: '0.6' },
+    { loc: `${SITE_URL}/pages/portfolio/catatan-kecil-dari-kelas-menulis.html`, lastmod: '2026-07-23', changefreq: 'monthly', priority: '0.6' },
+    { loc: `${SITE_URL}/pages/contact.html`, lastmod: '2026-07-23', changefreq: 'monthly', priority: '0.7' },
+  ];
+
+  const articleRows = articleEntries.map((a) => ({ loc: a.loc, lastmod: a.lastmod }));
+  const rows = [...staticPages, ...articleRows]
+    .map(({ loc, lastmod }) => {
+      const entry = staticPages.find((p) => p.loc === loc);
+      const changefreq = entry ? entry.changefreq : 'monthly';
+      const priority = entry ? entry.priority : '0.6';
+      return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod.slice(0, 10)}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+    });
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.join('\n')}\n</urlset>\n`;
+
+  fs.writeFileSync(path.join(__dirname, '..', 'sitemap.xml'), sitemap, 'utf8');
+  console.log('Built sitemap.xml');
 }
 
 build();

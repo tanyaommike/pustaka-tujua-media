@@ -9,8 +9,9 @@ Website company profile untuk jasa penerbitan naskah/buku digital. Static, respo
 - **HTML5** — Semantic markup
 - **CSS3 + Tailwind CSS** — Styling (compiled locally, no CDN)
 - **Vanilla JavaScript** — Interactivity (hamburger, WhatsApp links)
+- **Markdown + Node script** — Build halaman artikel dari `content/articles/*.md`
 - **No backend** — Pure static site
-- **No external dependencies** — Fonts dari Google Fonts, semua asset lokal
+- **No JS library/framework** — Font dari Google Fonts, semua asset lain lokal
 
 ---
 
@@ -30,8 +31,8 @@ cd pustaka-tujua-media
 # Install dependencies
 npm install
 
-# Build CSS
-npm run build:css
+# Build CSS & artikel
+npm run build
 
 # Watch CSS changes (development)
 npm run dev
@@ -45,9 +46,12 @@ npm run dev
 │   ├── about.html            # Tentang Kami
 │   ├── layanan.html          # Layanan & Paket
 │   ├── portfolio.html        # Portfolio
+│   ├── portfolio/*.html      # Halaman detail tiap buku
 │   ├── contact.html          # Contact
 │   ├── privacy.html          # Privacy Policy
 │   └── terms.html            # Terms of Service
+├── artikel/*.html             # Halaman artikel (generated dari content/articles/)
+├── content/articles/*.md      # Source artikel (Markdown + frontmatter)
 ├── css/
 │   ├── input.css             # Tailwind input (source)
 │   └── main.css              # Compiled output (generated)
@@ -56,9 +60,12 @@ npm run dev
 ├── images/
 │   ├── icons/                # SVG icons
 │   ├── covers/               # Book cover samples
+│   ├── blog/                 # Thumbnail artikel
+│   ├── team/                 # Avatar tim & klien
 │   └── og/                   # Open Graph images
-├── config.json               # Configuration (WhatsApp, company info)
-├── sitemap.xml               # SEO sitemap
+├── scripts/build-articles.js # Build artikel + sitemap.xml
+├── config.json               # Referensi data (tidak dibaca kode)
+├── sitemap.xml               # SEO sitemap (generated)
 ├── robots.txt                # SEO robots file
 ├── package.json              # Dependencies
 ├── tailwind.config.js        # Tailwind config
@@ -80,26 +87,19 @@ npm run dev
 Edit `js/main.js`, cari line:
 ```javascript
 const CONFIG = {
-  whatsappNumber: '62xxxxxxxxxx', // Replace dengan nomor Anda
+  whatsappNumber: '6285256095692', // Replace dengan nomor Anda
+  whatsappDisplay: '+62 852-5609-5692',
 };
 ```
 
-Atau edit langsung di HTML, ganti `62xxxxxxxxxx` di atribut `href` button WhatsApp.
+Nomor di `CONFIG` otomatis dipakai semua tombol & link WhatsApp di seluruh halaman. Ganti juga `whatsappDisplay` untuk teks yang tampil di footer.
 
 ### Company Info
 
-Edit `config.json`:
-```json
-{
-  "company": {
-    "name": "Pustaka Tujua Media",
-    "email": "info@pustaka.id",
-    "whatsapp": "62xxxxxxxxxx",
-    "instagram": "https://instagram.com/pustaka.tujua",
-    "facebook": "https://facebook.com/pustaka.tujua"
-  }
-}
-```
+`config.json` hanya **referensi data** (belum dibaca oleh kode). Data yang benar-benar dipakai situs:
+- **WhatsApp** → `js/main.js` (`CONFIG`)
+- **Email** → langsung di HTML tiap halaman (cari `info@pustaka.id`)
+- **Link sosmed** → langsung di HTML (footer & halaman kontak)
 
 ---
 
@@ -252,7 +252,7 @@ MIT License — Gunakan bebas, modifikasi sesuai kebutuhan.
 
 ## ✨ Next Steps
 
-1. Update company info di `config.json` & footer
+1. Update nomor WhatsApp di `js/main.js` & email/sosmed di footer HTML
 2. Isi content di semua halaman
 3. Upload book cover images ke `/images/covers/`
 4. Test responsif di mobile & desktop

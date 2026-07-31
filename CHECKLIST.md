@@ -45,7 +45,9 @@ Test dengan: [PageSpeed Insights](https://pagespeed.web.dev/), [WebPageTest](htt
 - [ ] Meta description (150-160 karakter), meta keywords relevan
 - [ ] Open Graph tags lengkap (og:title, og:description, og:image, og:url, og:locale)
 - [ ] Canonical URL self-referential
-- [ ] `sitemap.xml` & `robots.txt` accessible dan berisi semua halaman
+- [ ] `sitemap.xml` & `robots.txt` accessible dan berisi semua halaman (termasuk artikel)
+- [ ] `og:image` menunjuk file yang benar-benar ada (bukan 404) — placeholder SVG di `/images/og/`
+- [ ] Semua link artikel (`/artikel/*.html`) menuju halaman yang ada
 - [ ] Internal linking antar halaman terkait
 - [ ] (Opsional) Schema.org LocalBusiness JSON-LD
 
@@ -73,6 +75,8 @@ Test dengan: [Mobile-Friendly Test](https://search.google.com/test/mobile-friend
 | Link WhatsApp gagal | `CONFIG.whatsappNumber` benar; format `https://wa.me/62xxx?text=...`; test di mobile |
 | Gambar tidak muncul | Path relatif benar, file ada di `/images/`, cek console 404 |
 | CSS tidak update | `npm run build:css` ulang; clear cache browser (Ctrl+Shift+Del) |
+| Halaman artikel 404 | Jalankan `npm run build` (regenerasi `artikel/*.html` + `sitemap.xml`), commit hasilnya |
+| Halaman artikel lama tidak ter-update isinya | Edit `content/articles/*.md`, lalu `npm run build` |
 
 ---
 
@@ -81,7 +85,8 @@ Test dengan: [Mobile-Friendly Test](https://search.google.com/test/mobile-friend
 - [ ] Semua halaman tested mobile & desktop
 - [ ] Tidak ada broken link atau console error
 - [ ] Lighthouse: Performance ≥90, Accessibility ≥95, Best Practices ≥90, SEO ≥95
-- [ ] Data placeholder (WhatsApp, email, sosmed, tim, portfolio) sudah diganti data asli
+- [ ] Data placeholder (WhatsApp, email, sosmed, tim, portfolio, artikel) sudah diganti data asli
 - [ ] Gambar sudah dioptimasi & di-upload
+- [ ] Jalankan `npm run build` & commit `css/main.css`, `artikel/*.html`, `sitemap.xml` sebelum deploy
 
 **Maintenance rutin**: cek Google Search Console (mingguan), jalankan Lighthouse & cek broken link (bulanan), update portfolio/testimonial (kuartalan).

@@ -1,6 +1,11 @@
 [build]
-  command = ""
+  command = "npm run build"
   publish = "."
+
+[[redirects]]
+  from = "/artikel/:slug"
+  to = "/artikel/:slug.html"
+  status = 301
 
 [[headers]]
   for = "/css/*"

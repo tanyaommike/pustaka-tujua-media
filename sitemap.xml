@@ -1,38 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Home -->
   <url>
     <loc>https://pustaka-tujua-media.com/</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Tentang Kami -->
   <url>
     <loc>https://pustaka-tujua-media.com/pages/about.html</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Layanan -->
   <url>
     <loc>https://pustaka-tujua-media.com/pages/layanan.html</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Portfolio -->
   <url>
     <loc>https://pustaka-tujua-media.com/pages/portfolio.html</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>bi-weekly</changefreq>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Portfolio Detail -->
   <url>
     <loc>https://pustaka-tujua-media.com/pages/portfolio/jejak-langkah-pulang.html</loc>
     <lastmod>2026-07-23</lastmod>
@@ -57,28 +48,34 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <!-- Kontak -->
   <url>
     <loc>https://pustaka-tujua-media.com/pages/contact.html</loc>
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- Privacy -->
   <url>
-    <loc>https://pustaka-tujua-media.com/pages/privacy.html</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://pustaka-tujua-media.com/artikel/5-kesalahan-penulis-pemula.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
-
-  <!-- Terms -->
   <url>
-    <loc>https://pustaka-tujua-media.com/pages/terms.html</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://pustaka-tujua-media.com/artikel/self-publishing-vs-penerbit-mayor.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pustaka-tujua-media.com/artikel/skripsi-jadi-buku.html</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pustaka-tujua-media.com/artikel/tips-cover-buku-menjual.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
